@@ -1,26 +1,24 @@
 package com.example.searchcases;
 
-import android.app.ListActivity;
+//import android.app.ListActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserException;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-public class MainActivity extends ListActivity {
+public class MainActivity extends AppCompatActivity {
+    ListView listView;
+    String[]  listItemDemo = {"Java","Kotlin","C++" };
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        listView =(ListView)findViewById(R.id.listView);
+        final ArrayAdapter<String> adapterDemo = new ArrayAdapter<>(this,
+                R.layout.list_item, listItemDemo);
+        listView.setAdapter(adapterDemo);
+        }
 /*
         try {
             list = extractFromXML();
@@ -35,7 +33,7 @@ public class MainActivity extends ListActivity {
         */
 
 /*
-        ListView listView = (ListView) findViewById(R.id.listView);
+        //ListView listView = (ListView) findViewById(R.id.list);
         List<PensionInfo> personList = parseRegistry();
         List<String> list = new ArrayList<>();
 
@@ -54,7 +52,7 @@ public class MainActivity extends ListActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, list);
         listView.setAdapter(adapter);
-        */
+
     }
 
     public ArrayList<String> extractFromXML() throws XmlPullParserException, IOException {
@@ -250,4 +248,6 @@ public class MainActivity extends ListActivity {
                     Toast.LENGTH_LONG).show();
         }
     }
+    */
+
 }

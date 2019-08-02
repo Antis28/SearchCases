@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Search Cases</string>
+    <string name="search_on_number_from_base">Поиск по номеру из базы</string>
+    <string name="search">Искать</string>
 </resources>

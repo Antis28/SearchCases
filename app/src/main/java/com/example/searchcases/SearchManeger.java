@@ -12,6 +12,7 @@ import java.util.List;
 public class SearchManeger {
     private PensionInfo person;
     private FindInRegistr finder;
+    private List<PensionInfo> allPensList = null;
 
     public SearchManeger() {
         person = new PensionInfo();
@@ -65,8 +66,6 @@ public class SearchManeger {
             }
             parser.next();
         }
-
-
         return personList;
     }
 
@@ -144,4 +143,24 @@ public class SearchManeger {
     }
 
 
+    public List<PensionInfo> getAllPensList() {
+        return allPensList;
+    }
+
+    public void setAllPensList(List<PensionInfo> allPensList) {
+        this.allPensList = allPensList;
+    }
+
+    public List<PensionInfo> getPensWithNumber(String numberInBase) {
+
+        List<PensionInfo> filterPensList = new ArrayList<>(10);
+        for (int i = 0; i < allPensList.size(); i++) {
+            String currNuberReg = allPensList.get(i).getNumberInBase();
+            boolean valueEquals = currNuberReg.equals(numberInBase);
+            if (valueEquals) {
+                filterPensList.add(allPensList.get(i));
+            }
+        }
+        return filterPensList;
+    }
 }

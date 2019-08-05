@@ -28,4 +28,8 @@ public class SearchScreenActivity extends AppCompatActivity {
                 startActivity(intent);
         }
     }
+
+    public void backToMain(View view) {
+        onBackPressed();
+    }
 }

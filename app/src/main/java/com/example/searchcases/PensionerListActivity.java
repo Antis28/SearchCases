@@ -101,10 +101,13 @@ public class PensionerListActivity extends AppCompatActivity {
 
 
     public void back(View view) {
+        /*
         switch (view.getId()) {
             case R.id.pass_button:
                 Intent intent = new Intent(this, SearchScreenActivity.class);
                 startActivity(intent);
         }
+        */
+        onBackPressed();
     }
 }

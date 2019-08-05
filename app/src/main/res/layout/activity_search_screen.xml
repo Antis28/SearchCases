@@ -5,11 +5,18 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_purple"
+    android:background="#ddd"
     android:orientation="vertical"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
+    android:padding="16dp"
     tools:context=".SearchScreenActivity">
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="backToMain"
+        android:text="@string/back_to_searchscreen"
+        tools:ignore="OnClick" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -18,17 +25,18 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
-        android:background="@android:color/holo_orange_light"
+        android:background="@android:color/white"
         android:text="@string/search_on_number_from_base"
         android:textSize="20sp"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:textColor="#000"/>
 
     <EditText
         android:id="@+id/input_number_in_base"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:background="@android:color/holo_blue_dark"
+        android:background="@android:color/white"
         android:hint="@string/hint_for_number_in_base"
         android:inputType="number"
         android:padding="16dp"

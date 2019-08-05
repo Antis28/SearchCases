@@ -11,5 +11,6 @@
     <b>Налево</b> - сказку говорит.</string>
     <string name="about_title">О программе</string>
     <string name="hint_for_number_in_base">Введите шестизначный номер</string>
-    <string name="back_to_searchscreen">Вернутся</string>
+    <string name="back_to_searchscreen">Вернуться</string>
+    <string name="clear">Очистить</string>
 </resources>

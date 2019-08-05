@@ -25,6 +25,7 @@ public class PensionerListActivity extends AppCompatActivity {
 
         String numberInBase = "Номер не получен.";
         numberInBase = getIntent().getStringExtra("numberInBase");
+
         TextView testTextView = findViewById(R.id.testTextView);
         testTextView.setText(("Переданый номер - " + numberInBase));
 

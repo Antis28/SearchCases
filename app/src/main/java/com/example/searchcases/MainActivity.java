@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToFormTwo(View view) {
 		switch(view.getId()){
-			case R.id.pass_button:
+			case R.id.goto_search_by_base_number_button:
 				Intent intent = new Intent(this,SearchScreenActivity.class);
 				startActivity(intent);
 		}

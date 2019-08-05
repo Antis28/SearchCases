@@ -13,4 +13,7 @@
     <string name="hint_for_number_in_base">Введите шестизначный номер</string>
     <string name="back_to_searchscreen">Вернуться</string>
     <string name="clear">Очистить</string>
+    <string name="search_by_lastname">Поиск по фамилии</string>
+    <string name="search_by_registr">Поиск по номеру в описи</string>
+    <string name="search_by_number_in_base">Поиск по номеру из базы</string>
 </resources>

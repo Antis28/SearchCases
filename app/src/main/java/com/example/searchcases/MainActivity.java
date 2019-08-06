@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.goto_search_by_number_in_registry:
-                intent = new Intent(this, SearchByNumberInBaseActivity.class);
+                intent = new Intent(this, SearchByNumberRegistryActivity.class);
                 startActivity(intent);
                 break;
 		}

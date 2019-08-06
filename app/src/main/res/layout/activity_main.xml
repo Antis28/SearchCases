@@ -51,7 +51,7 @@
         android:layout_margin="8dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:enabled="false"
+        android:enabled="true"
         android:onClick="buttonsHandler"
         android:padding="16dp"
         android:text="@string/search_by_registr"

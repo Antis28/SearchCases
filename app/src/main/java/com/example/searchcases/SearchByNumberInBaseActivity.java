@@ -19,8 +19,21 @@ public class SearchByNumberInBaseActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search_by_number_in_base);
 
     }
+    public void buttonsHandler(View view) {
+        switch (view.getId()) {
+            case R.id.search_by_number_in_base:
+                searchComparePensioner(view);
+                break;
+            case R.id.clear_button:
+                clearInputNumberInBase(view);
+                break;
+            case R.id.back:
+                onBackPressed();
+                break;
+        }
+    }
 
-    public void searchComparePensioner(View view) {
+    private void searchComparePensioner(View view) {
         switch (view.getId()) {
             case R.id.search_by_number_in_base:
                 /*
@@ -72,17 +85,12 @@ public class SearchByNumberInBaseActivity extends AppCompatActivity {
         listView.setAdapter(adapterDemo);
     }
 
-
     private ListView getListView() {
         ListView listView = (ListView) findViewById(R.id.listView);
         return listView;
     }
 
-    public void backToMain(View view) {
-        onBackPressed();
-    }
-
-    public void clearInputNumberInBase(View view) {
+    private void clearInputNumberInBase(View view) {
         EditText numberTextView = findViewById(R.id.input_number_in_base);
         numberTextView.setText("");
     }

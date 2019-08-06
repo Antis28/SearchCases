@@ -8,7 +8,7 @@
     android:background="#ddd"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".SearchByNumberInBaseActivity">
+    tools:context=".SearchByNumberRegistryActivity">
 
     <Button
         android:id="@+id/back"
@@ -22,31 +22,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/search_on_number_from_base"
-        android:textSize="20sp"
-        android:layout_gravity="center_horizontal"
-        android:textColor="#000"/>
+        android:text="@string/search_by_number_from_registry"
+        android:textColor="#000"
+        android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/input_number_in_base"
+        android:id="@+id/input_number_in_registry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginBottom="8dp"
         android:background="@android:color/white"
-        android:hint="@string/hint_for_number_in_base"
+        android:hint="@string/input_number_by_registry"
         android:inputType="number"
-        android:padding="16dp"
-        android:textSize="16sp"
         android:maxLength="6"
-        android:layout_gravity="center_horizontal"/>
+        android:padding="16dp"
+        android:textSize="16sp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center_horizontal">
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/clear_button"
@@ -55,17 +55,17 @@
             android:layout_gravity="center_horizontal"
             android:onClick="buttonsHandler"
             android:text="@string/clear"
-            android:textSize="20sp"
-           />
+            android:textSize="20sp" />
+
         <Button
-            android:id="@+id/search_by_number_in_base"
+            android:id="@+id/search_by_number_in_registry"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="30dp"
             android:onClick="buttonsHandler"
             android:text="@string/search"
-            android:textSize="20sp"
-            android:layout_marginLeft="30dp"/>
+            android:textSize="20sp" />
     </LinearLayout>
 
     <TextView
@@ -73,8 +73,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text=""
-        android:layout_margin="8dp"/>
+        android:layout_margin="8dp"
+        android:text="" />
 
     <ListView
         android:id="@+id/listView"

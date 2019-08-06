@@ -18,4 +18,6 @@
     <string name="search_by_number_in_base">Поиск по номеру из базы</string>
     <string name="select_research">Выберите поиск:</string>
     <string name="hint_for_lastname">Введите фамилию</string>
+    <string name="input_number_by_registry">Введите номер из описи</string>
+    <string name="search_by_number_from_registry">Поиск по номеру из описи</string>
 </resources>

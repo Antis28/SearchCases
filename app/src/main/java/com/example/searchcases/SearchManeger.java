@@ -196,8 +196,8 @@ public class SearchManeger {
 
         List<PensionInfo> filterPensList = new ArrayList<>(10);
         for (int i = 0; i < allPensList.size(); i++) {
-            String currLastname = allPensList.get(i).getLastName();
-            boolean valueEquals = currLastname.contains(lastname);
+            String currLastname = allPensList.get(i).getLastName().toLowerCase();
+            boolean valueEquals = currLastname.contains(lastname.toLowerCase());
             if (valueEquals) {
                 filterPensList.add(allPensList.get(i));
             }
@@ -220,5 +220,17 @@ public class SearchManeger {
             listString.add(s);
         }
         return listString;
+    }
+
+    List<PensionInfo> getPensNumberRegistry(String numberRegistry) {
+        List<PensionInfo> filterPensList = new ArrayList<>(10);
+        for (int i = 0; i < allPensList.size(); i++) {
+            String currNumberRegistry = allPensList.get(i).getNumberRegistry();
+            boolean valueEquals = currNumberRegistry.equals(numberRegistry);
+            if (valueEquals) {
+                filterPensList.add(allPensList.get(i));
+            }
+        }
+        return filterPensList;
     }
 }

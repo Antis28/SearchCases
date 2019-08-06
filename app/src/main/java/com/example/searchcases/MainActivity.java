@@ -4,14 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.Toast;
-
-import org.xmlpull.v1.XmlPullParser;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,12 +17,23 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void goToFormTwo(View view) {
+    public void buttonsHandler(View view) {
+        Intent intent;
 		switch(view.getId()){
 			case R.id.goto_search_by_base_number_button:
-				Intent intent = new Intent(this,SearchScreenActivity.class);
+                intent= new Intent(this, SearchByNumberInBaseActivity.class);
 				startActivity(intent);
+				break;
+            case R.id.goto_search_by_lastname_button:
+                intent = new Intent(this, SearchByLastnameActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.goto_search_by_number_in_registry:
+                intent = new Intent(this, SearchByNumberInBaseActivity.class);
+                startActivity(intent);
+                break;
 		}
-		
+
     }
+
 }

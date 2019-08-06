@@ -8,7 +8,7 @@
     android:background="#ddd"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".SearchScreenActivity">
+    tools:context=".SearchByNumberInBaseActivity">
 
     <Button
         android:id="@+id/back"
@@ -58,11 +58,11 @@
             android:textSize="20sp"
            />
         <Button
-            android:id="@+id/pass_button"
+            android:id="@+id/search_by_number_in_base"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:onClick="goToPensionerList"
+            android:onClick="searchComparePensioner"
             android:text="@string/search"
             android:textSize="20sp"
             android:layout_marginLeft="30dp"/>

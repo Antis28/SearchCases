@@ -1,5 +1,6 @@
 package com.example.searchcases;
 
+import android.app.Activity;
 import android.widget.Toast;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -15,13 +16,12 @@ public class SearchManeger {
     private List<PensionInfo> allPensList = null;
 
     public SearchManeger() {
-        person = new PensionInfo();
-        finder = new FindInRegistr();
+        init();
     }
 
-    public void SearchExecute(int idInBase) {
-        // TODO: сделать проверку является ли число шестизначным
-        finder.FindNumberInBase(idInBase);
+    public SearchManeger(Activity view) {
+        init();
+        parseAndAddXmlResource(view);
     }
 
     public List<PensionInfo> parseRegistry(XmlPullParser parser) throws IOException, XmlPullParserException {
@@ -31,6 +31,34 @@ public class SearchManeger {
 
         return personList;
     }
+    private void init() {
+        person = new PensionInfo();
+        finder = new FindInRegistr();
+    }
+
+    private void parseAndAddXmlResource(Activity view) {
+        try {
+            XmlPullParser parser2014 = view.getResources().getXml(R.xml.export_2014);
+            XmlPullParser parser2015 = view.getResources().getXml(R.xml.export_2015);
+            XmlPullParser parser2016 = view.getResources().getXml(R.xml.export_2016);
+            XmlPullParser parser2017 = view.getResources().getXml(R.xml.export_2017);
+            XmlPullParser parser2018 = view.getResources().getXml(R.xml.export_2018);
+            XmlPullParser parser2019 = view.getResources().getXml(R.xml.export_2019);
+
+            allPensList = parseRegistry(parser2014);
+            allPensList.addAll(parseRegistry(parser2015));
+            allPensList.addAll(parseRegistry(parser2016));
+            allPensList.addAll(parseRegistry(parser2017));
+            allPensList.addAll(parseRegistry(parser2018));
+            allPensList.addAll(parseRegistry(parser2019));
+        } catch (Throwable t) {
+            Toast.makeText(view,
+                    "Ошибка при загрузке XML-документа: " + t.toString(),
+                    Toast.LENGTH_LONG).show();
+        }
+    }
+
+
 
     private List<PensionInfo> fillOutPensionerList(XmlPullParser parser) throws XmlPullParserException, IOException {
         PensionInfo person = new PensionInfo();
@@ -151,9 +179,9 @@ public class SearchManeger {
         this.allPensList = allPensList;
     }
 
-    public List<PensionInfo> getPensWithNumber(String numberInBase) {
+    List<PensionInfo> getPensWithNumber(String numberInBase) {
 
-        List<PensionInfo> filterPensList = new ArrayList<>(10);
+        List<PensionInfo> filterPensList = new ArrayList<>(1);
         for (int i = 0; i < allPensList.size(); i++) {
             String currNuberReg = allPensList.get(i).getNumberInBase();
             boolean valueEquals = currNuberReg.equals(numberInBase);
@@ -162,5 +190,35 @@ public class SearchManeger {
             }
         }
         return filterPensList;
+    }
+
+    List<PensionInfo> getPensByLastName(String lastname) {
+
+        List<PensionInfo> filterPensList = new ArrayList<>(10);
+        for (int i = 0; i < allPensList.size(); i++) {
+            String currLastname = allPensList.get(i).getLastName();
+            boolean valueEquals = currLastname.contains(lastname);
+            if (valueEquals) {
+                filterPensList.add(allPensList.get(i));
+            }
+        }
+        return filterPensList;
+    }
+
+    List<String> pensionerToStrings(List<PensionInfo> pensList) {
+        List<String> listString = new ArrayList<>();
+        for (int i = 0; i < pensList.size(); i++) {
+            String s = "";
+            s += pensList.get(i).getLastName() + " ";
+            s += pensList.get(i).getName() + " ";
+            s += pensList.get(i).getFartherName() + "\n";
+            s += "Номер по описи - " + pensList.get(i).getNumberRegistry() + "\n";
+            s += pensList.get(i).getRegistryName() + "\n";
+            if (!pensList.get(i).getRemark().equals(""))
+                s += "Примечание - " + pensList.get(i).getRemark();
+
+            listString.add(s);
+        }
+        return listString;
     }
 }

@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="32dp"
-        android:text="Выберите поиск:"
+        android:text="@string/select_research"
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
@@ -22,7 +22,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:onClick="goToFormTwo"
+        android:onClick="buttonsHandler"
         android:padding="16dp"
         android:text="@string/search_by_number_in_base"
         android:textAllCaps="false"
@@ -36,15 +36,15 @@
         android:layout_margin="8dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:enabled="false"
-        android:onClick="goToFormTwo"
+        android:enabled="true"
+        android:onClick="buttonsHandler"
         android:padding="16dp"
         android:text="@string/search_by_lastname"
         android:textAllCaps="false"
         android:textSize="20sp" />
 
     <Button
-        android:id="@+id/pass_button"
+        android:id="@+id/goto_search_by_number_in_registry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -52,7 +52,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:enabled="false"
-        android:onClick="goToFormTwo"
+        android:onClick="buttonsHandler"
         android:padding="16dp"
         android:text="@string/search_by_registr"
         android:textAllCaps="false"

@@ -209,6 +209,7 @@ public class SearchManeger {
         List<String> listString = new ArrayList<>();
         for (int i = 0; i < pensList.size(); i++) {
             String s = "";
+            s += "Номер по базе - " + pensList.get(i).getNumberInBase() + "\n";
             s += pensList.get(i).getLastName() + " ";
             s += pensList.get(i).getName() + " ";
             s += pensList.get(i).getFartherName() + "\n";

@@ -27,7 +27,7 @@ public class SearchByNumberInBaseActivity extends AppCompatActivity {
             case R.id.clear_button:
                 clearInputNumberInBase(view);
                 break;
-            case R.id.back:
+            case R.id.back_button:
                 onBackPressed();
                 break;
         }

@@ -2,11 +2,13 @@ package com.example.searchcases;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -17,15 +19,32 @@ public class SearchByNumberInBaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_by_number_in_base);
+/*
+        final EditText edittext = (EditText) findViewById(R.id.input_number_in_registry);
 
+        edittext.setOnKeyListener(new View.OnKeyListener() {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                // If the event is a key-down event on the "enter" button
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    // Perform action on key press
+                    searchComparePensioner();
+                    edittext.setText("TEST");
+                    return true;
+                }
+                return false;
+            }
+        });
+*/
     }
+
     public void buttonsHandler(View view) {
         switch (view.getId()) {
             case R.id.search_by_number_in_base:
-                searchComparePensioner(view);
+                searchComparePensioner();
                 break;
             case R.id.clear_button:
-                clearInputNumberInBase(view);
+                clearInputNumberInBase();
                 break;
             case R.id.back_button:
                 onBackPressed();
@@ -33,41 +52,28 @@ public class SearchByNumberInBaseActivity extends AppCompatActivity {
         }
     }
 
-    private void searchComparePensioner(View view) {
-        switch (view.getId()) {
-            case R.id.search_by_number_in_base:
-                /*
-                String numberInBase = "123456";
-                EditText numberTextView = findViewById(R.id.input_number_in_base);
-                numberInBase = numberTextView.getText().toString();
+    private void searchComparePensioner() {
+        EditText numberTextView = findViewById(R.id.input_number_in_base);
+        String numberInBase = numberInBase = numberTextView.getText().toString();
+        TextView testTextView = findViewById(R.id.testTextView);
 
-                Intent intent = new Intent(this,PensionerListActivity.class);
-                intent.putExtra("numberInBase",numberInBase);
-                startActivity(intent);
-                */
-
-                EditText numberTextView = findViewById(R.id.input_number_in_base);
-                String numberInBase = numberInBase = numberTextView.getText().toString();
-                TextView testTextView = findViewById(R.id.testTextView);
-
-                if (numberInBase.equals("")) {
-                    testTextView.setText("Заполните поле выше.");
-                    break;
-                } else if (numberInBase.length() < 6) {
-                    testTextView.setText("Номер не шестизначный.");
-                    break;
-                }
-
-                testTextView.setText(("Обработка номера " + numberInBase));
-                List<PensionInfo> pensList = getPensionsByNumberBase(numberInBase);
-                List<String> listString = searchManeger.pensionerToStrings(pensList);
-                ShowStringsInListView(listString);
-                if (listString.size() > 0)
-                    testTextView.setText(("Номер " + numberInBase + " найден"));
-                else
-                    testTextView.setText(("Номер " + numberInBase + " не найден"));
-                break;
+        if (numberInBase.equals("")) {
+            testTextView.setText("Заполните поле выше.");
+            return;
+        } else if (numberInBase.length() < 6) {
+            testTextView.setText("Номер не шестизначный.");
+            return;
         }
+
+        testTextView.setText(("Обработка номера " + numberInBase));
+        List<PensionInfo> pensList = getPensionsByNumberBase(numberInBase);
+        List<String> listString = searchManeger.pensionerToStrings(pensList);
+        ShowStringsInListView(listString);
+        if (listString.size() > 0)
+            testTextView.setText(("Номер " + numberInBase + " найден"));
+        else
+            testTextView.setText(("Номер " + numberInBase + " не найден"));
+
 
     }
 
@@ -90,7 +96,7 @@ public class SearchByNumberInBaseActivity extends AppCompatActivity {
         return listView;
     }
 
-    private void clearInputNumberInBase(View view) {
+    private void clearInputNumberInBase() {
         EditText numberTextView = findViewById(R.id.input_number_in_base);
         numberTextView.setText("");
     }

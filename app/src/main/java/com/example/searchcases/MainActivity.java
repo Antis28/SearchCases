@@ -32,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(this, SearchByNumberRegistryActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.about:
+                intent = new Intent(this, AboutActivity.class);
+                startActivity(intent);
+                break;
 		}
 
     }

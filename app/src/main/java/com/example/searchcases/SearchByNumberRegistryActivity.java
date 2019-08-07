@@ -75,7 +75,7 @@ public class SearchByNumberRegistryActivity extends AppCompatActivity {
     }
 
     private void clearInputNumberInBase(View view) {
-        EditText numberTextView = findViewById(R.id.input_lastname);
+        EditText numberTextView = findViewById(R.id.input_number_in_registry);
         numberTextView.setText("");
     }
 }

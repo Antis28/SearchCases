@@ -15,6 +15,16 @@ public class SearchManeger {
     private FindInRegistr finder;
     private List<PensionInfo> allPensList = null;
 
+    private int[] xmlIDs = {
+            R.xml.export_2012,
+            R.xml.export_2013,
+            R.xml.export_2014,
+            R.xml.export_2015,
+            R.xml.export_2016,
+            R.xml.export_2017,
+            R.xml.export_2018,
+    };
+
     public SearchManeger() {
         init();
     }
@@ -31,6 +41,7 @@ public class SearchManeger {
 
         return personList;
     }
+
     private void init() {
         person = new PensionInfo();
         finder = new FindInRegistr();
@@ -38,31 +49,21 @@ public class SearchManeger {
 
     private void parseAndAddXmlResource(Activity view) {
         try {
-            XmlPullParser parser2012 = view.getResources().getXml(R.xml.export_2012);
-            XmlPullParser parser2013 = view.getResources().getXml(R.xml.export_2013);
-            XmlPullParser parser2014 = view.getResources().getXml(R.xml.export_2014);
-            XmlPullParser parser2015 = view.getResources().getXml(R.xml.export_2015);
-            XmlPullParser parser2016 = view.getResources().getXml(R.xml.export_2016);
-            XmlPullParser parser2017 = view.getResources().getXml(R.xml.export_2017);
-            XmlPullParser parser2018 = view.getResources().getXml(R.xml.export_2018);
-            XmlPullParser parser2019 = view.getResources().getXml(R.xml.export_2019);
+            List<XmlPullParser> parsers = new ArrayList<>(xmlIDs.length);
 
+            for (int i : xmlIDs) {
+                parsers.add(view.getResources().getXml(i));
+            }
             allPensList = new ArrayList<PensionInfo>(15000);
-            allPensList.addAll(parseRegistry(parser2012));
-            allPensList.addAll(parseRegistry(parser2013));
-            allPensList.addAll(parseRegistry(parser2014));
-            allPensList.addAll(parseRegistry(parser2015));
-            allPensList.addAll(parseRegistry(parser2016));
-            allPensList.addAll(parseRegistry(parser2017));
-            allPensList.addAll(parseRegistry(parser2018));
-            allPensList.addAll(parseRegistry(parser2019));
+            for (XmlPullParser parser : parsers) {
+                allPensList.addAll(parseRegistry(parser));
+            }
         } catch (Throwable t) {
             Toast.makeText(view,
                     "Ошибка при загрузке XML-документа: " + t.toString(),
                     Toast.LENGTH_LONG).show();
         }
     }
-
 
 
     private List<PensionInfo> fillOutPensionerList(XmlPullParser parser) throws XmlPullParserException, IOException {

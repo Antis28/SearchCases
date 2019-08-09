@@ -203,7 +203,7 @@ public class SearchManeger {
         List<PensionInfo> filterPensList = new ArrayList<>(10);
         for (int i = 0; i < allPensList.size(); i++) {
             String currLastname = allPensList.get(i).getLastName().toLowerCase();
-            boolean valueEquals = currLastname.contains(lastname.toLowerCase());
+            boolean valueEquals = currLastname.startsWith(lastname.toLowerCase());
             if (valueEquals) {
                 filterPensList.add(allPensList.get(i));
             }

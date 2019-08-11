@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 public class SearchByNumberRegistryActivity extends AppCompatActivity {
-    SearchManeger searchManeger;
+    SearchManager searchManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +46,7 @@ public class SearchByNumberRegistryActivity extends AppCompatActivity {
 
         testTextView.setText(("Обработка Фамилии... " + numberRegistry));
         List<PensionInfo> pensList = getPensionsByNumberRegistry(numberRegistry);
-        List<String> listString = searchManeger.pensionerToStrings(pensList);
+        List<String> listString = searchManager.pensionerToStrings(pensList);
         ShowStringsInListView(listString);
         if (listString.size() > 0)
             testTextView.setText(("Найдено совпадений - " + listString.size()));
@@ -56,10 +56,10 @@ public class SearchByNumberRegistryActivity extends AppCompatActivity {
     }
 
     private List<PensionInfo> getPensionsByNumberRegistry(String numberRegistry) {
-        if (searchManeger == null) {
-            searchManeger = new SearchManeger(this);
+        if (searchManager == null) {
+            searchManager = new SearchManager(this);
         }
-        return searchManeger.getPensNumberRegistry(numberRegistry);
+        return searchManager.getPensNumberRegistry(numberRegistry);
     }
 
     private void ShowStringsInListView(List<String> listString) {

@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 public class SearchByLastnameActivity extends AppCompatActivity {
-    SearchManeger searchManeger;
+    SearchManager searchManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +46,7 @@ public class SearchByLastnameActivity extends AppCompatActivity {
 
         testTextView.setText(("Обработка Фамилии... " + lastname));
         List<PensionInfo> pensList = getPensionsByLastname(lastname);
-        List<String> listString = searchManeger.pensionerToStrings(pensList);
+        List<String> listString = searchManager.pensionerToStrings(pensList);
         ShowStringsInListView(listString);
         if (listString.size() > 0)
             testTextView.setText(("Найдено совпадений - " + listString.size()));
@@ -56,10 +56,10 @@ public class SearchByLastnameActivity extends AppCompatActivity {
     }
 
     private List<PensionInfo> getPensionsByLastname(String lastname) {
-        if (searchManeger == null) {
-            searchManeger = new SearchManeger(this);
+        if (searchManager == null) {
+            searchManager = new SearchManager(this);
         }
-        return searchManeger.getPensByLastName(lastname);
+        return searchManager.getPensByLastName(lastname);
     }
 
     private void ShowStringsInListView(List<String> listString) {

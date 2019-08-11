@@ -2,18 +2,16 @@ package com.example.searchcases;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
 public class SearchByNumberInBaseActivity extends AppCompatActivity {
-    SearchManeger searchManeger;
+    SearchManager searchManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +65,7 @@ public class SearchByNumberInBaseActivity extends AppCompatActivity {
 
         testTextView.setText(("Обработка номера " + numberInBase));
         List<PensionInfo> pensList = getPensionsByNumberBase(numberInBase);
-        List<String> listString = searchManeger.pensionerToStrings(pensList);
+        List<String> listString = searchManager.pensionerToStrings(pensList);
         ShowStringsInListView(listString);
         if (listString.size() > 0)
             testTextView.setText(("Номер " + numberInBase + " найден"));
@@ -78,10 +76,10 @@ public class SearchByNumberInBaseActivity extends AppCompatActivity {
     }
 
     private List<PensionInfo> getPensionsByNumberBase(String numberInBase) {
-        if (searchManeger == null) {
-            searchManeger = new SearchManeger(this);
+        if (searchManager == null) {
+            searchManager = new SearchManager(this);
         }
-        return searchManeger.getPensWithNumber(numberInBase);
+        return searchManager.getPensWithNumber(numberInBase);
     }
 
     private void ShowStringsInListView(List<String> listString) {

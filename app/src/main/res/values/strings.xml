@@ -4,21 +4,9 @@
     <string name="search">Искать</string>
     <string name="about_text">
         Версия <b>0.14.1</b> \n\n
-        Поиск производится по описям:\n\n
-        2005\n
-        2006\n
-        2007\n
-        2008\n
-        2009\n
-        2010\n
-        2011\n
-        2012\n
-        2013\n
-        2014\n
-        2015\n
-        2016\n
-        2017\n
-        2018 - до 01.08.2018
+        Программа обрабатывает записей:\n<b>25 829</b>\n
+        Поиск производится по описям:\n
+        2005 - 2018 гг.
     </string>
     <string name="about_title">О программе</string>
     <string name="hint_for_number_in_base">Введите шестизначный номер</string>
@@ -31,4 +19,8 @@
     <string name="hint_for_lastname">Введите фамилию</string>
     <string name="input_number_by_registry">Введите номер из описи</string>
     <string name="search_by_number_from_registry">Поиск по номеру из описи</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_cat_male">Кот</string>
+    <string name="action_cat_female">Кошка</string>
+    <string name="action_kitten">Котёнок</string>
 </resources>

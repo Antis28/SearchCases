@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data>
+	<contact>
+		<firstname>Кот</firstname>
+		<lastname>Рыжик</lastname>
+		<phone
+			home="4516585"
+			work="1111" />
+	</contact>
+	<contact>
+		<firstname>Кот</firstname>
+		<lastname>Барсик</lastname>
+		<phone
+			home="4516586"
+			work="222" />
+	</contact>
+	<contact>
+		<firstname>Кошка</firstname>
+		<lastname>Мурка</lastname>
+		<phone
+			home="4516587"
+			work="3333" />
+	</contact>
+</data>

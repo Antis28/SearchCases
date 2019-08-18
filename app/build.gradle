@@ -1,6 +1,9 @@
 apply plugin: 'com.android.application'
 
 android {
+    aaptOptions {
+        additionalParameters "--keep-raw-values"
+    }
     signingConfigs {
         debug { /* здесь никаких изменений нет */ }
         release {

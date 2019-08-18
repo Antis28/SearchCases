@@ -4,39 +4,36 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
 
-public class SearchByNumberInBaseActivity extends AppCompatActivity {
+public class SearchByNumberInBaseActivity extends AppCompatActivity implements View.OnClickListener {
     SearchManager searchManager;
+    Button btnSearchByNumberInBase,
+            btnClearTextEdit,
+            btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_by_number_in_base);
-/*
-        final EditText edittext = (EditText) findViewById(R.id.input_number_in_registry);
 
-        edittext.setOnKeyListener(new View.OnKeyListener() {
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                // If the event is a key-down event on the "enter" button
-                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
-                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                    // Perform action on key press
-                    searchComparePensioner();
-                    edittext.setText("TEST");
-                    return true;
-                }
-                return false;
-            }
-        });
-*/
+        btnSearchByNumberInBase = findViewById(R.id.search_by_number_in_base);
+        btnSearchByNumberInBase.setOnClickListener(this);
+
+        btnClearTextEdit = findViewById(R.id.clear_button);
+        btnClearTextEdit.setOnClickListener(this);
+
+        btnBack = findViewById(R.id.back_button);
+        btnBack.setOnClickListener(this);
     }
 
-    public void buttonsHandler(View view) {
+    @Override
+    public void onClick(View view) {
         switch (view.getId()) {
             case R.id.search_by_number_in_base:
                 searchComparePensioner();

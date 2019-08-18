@@ -1,5 +1,14 @@
 package com.example.searchcases;
 
+import android.widget.Toast;
+
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 // Содержит всю информацию о пенсионере
 public class PensionInfo {
 

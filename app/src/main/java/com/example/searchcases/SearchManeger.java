@@ -16,6 +16,13 @@ public class SearchManeger {
     private List<PensionInfo> allPensList = null;
 
     private int[] xmlIDs = {
+            R.xml.export_2005,
+            R.xml.export_2006,
+            R.xml.export_2007,
+            R.xml.export_2008,
+            R.xml.export_2009,
+            R.xml.export_2010,
+            R.xml.export_2011,
             R.xml.export_2012,
             R.xml.export_2013,
             R.xml.export_2014,

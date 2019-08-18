@@ -222,15 +222,23 @@ public class SearchManeger {
         List<String> listString = new ArrayList<>();
         for (int i = 0; i < pensList.size(); i++) {
             String s = "";
+
             s += "Номер по базе - " + pensList.get(i).getNumberInBase() + "\n";
+
             s += pensList.get(i).getLastName() + " ";
             s += pensList.get(i).getName() + " ";
-            s += pensList.get(i).getFartherName() + "\n";
-            s += "Номер по описи - " + pensList.get(i).getNumberRegistry() + "\n";
+            s += pensList.get(i).getFartherName() + "\n\n";
+
             s += pensList.get(i).getRegistryName() + "\n";
+            s += "Номер по описи - " + pensList.get(i).getNumberRegistry() + "\n\n";
+
+            s += "Количество страниц - " + pensList.get(i).getPageCount() + "\n";
+            s += "Период:\n";
+            s +=  pensList.get(i).getDataStart();
+            s +=  " - ";
+            s +=  pensList.get(i).getDataEnd() + "\n";
             if (!pensList.get(i).getRemark().equals(""))
                 s += "Примечание - " + pensList.get(i).getRemark();
-
             listString.add(s);
         }
         return listString;

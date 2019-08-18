@@ -1,11 +1,10 @@
 <resources>
     <string name="app_name">Опись</string>
-    <string name="app_name_activity">Поиск по описям 2014-2018</string>
     <string name="search_on_number_from_base">Поиск по номеру из базы</string>
     <string name="search">Искать</string>
     <string name="about_text">
-        Версия <b>0.14.0</b> \n\n
-        Добавленные описи:\n\n
+        Версия <b>0.14.1</b> \n\n
+        Поиск производится по описям:\n\n
         2005\n
         2006\n
         2007\n

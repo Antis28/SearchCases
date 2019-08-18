@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Опись</string>
+    <string name="search_on_number_from_base">Поиск по номеру из базы</string>
+    <string name="search">Искать</string>
+    <string name="about_text">
+        Версия <b>0.14.1</b> \n\n
+        Программа обрабатывает записей:\n<b>25 829</b>\n
+        Поиск производится по описям:\n
+        2005 - 2018 гг.
+    </string>
+    <string name="about_title">О программе</string>
+    <string name="hint_for_number_in_base">Введите шестизначный номер</string>
+    <string name="back_to_searchscreen">Вернуться</string>
+    <string name="clear">Очистить</string>
+    <string name="search_by_lastname">по фамилии</string>
+    <string name="search_by_registr">по номеру в описи</string>
+    <string name="search_by_number_in_base">по номеру из базы</string>
+    <string name="select_research">Выберите поиск:</string>
+    <string name="hint_for_lastname">Введите фамилию</string>
+    <string name="input_number_by_registry">Введите номер из описи</string>
+    <string name="search_by_number_from_registry">Поиск по номеру из описи</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_cat_male">Кот</string>
+    <string name="action_cat_female">Кошка</string>
+    <string name="action_kitten">Котёнок</string>
+</resources>

@@ -4,12 +4,16 @@
     <string name="search_on_number_from_base">Поиск по номеру из базы</string>
     <string name="search">Искать</string>
     <string name="about_text">
-    У лукоморья дуб зелёный;\n
-    Златая цепь на дубе том:\n
-    И днём и ночью <b>кот учёный</b>\n
-    Всё ходит по цепи кругом;\n
-    Идёт <b>направо</b> - песнь заводит,\n
-    <b>Налево</b> - сказку говорит.</string>
+        Версия <b>0.7.0</b> \n\n
+        Добавленные описи:\n\n
+        2012\n
+        2013\n
+        2014\n
+        2015\n
+        2016\n
+        2017\n
+        2018 - до 01.08.2018
+    </string>
     <string name="about_title">О программе</string>
     <string name="hint_for_number_in_base">Введите шестизначный номер</string>
     <string name="back_to_searchscreen">Вернуться</string>

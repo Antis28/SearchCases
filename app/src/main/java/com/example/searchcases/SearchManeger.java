@@ -38,6 +38,8 @@ public class SearchManeger {
 
     private void parseAndAddXmlResource(Activity view) {
         try {
+            XmlPullParser parser2012 = view.getResources().getXml(R.xml.export_2012);
+            XmlPullParser parser2013 = view.getResources().getXml(R.xml.export_2013);
             XmlPullParser parser2014 = view.getResources().getXml(R.xml.export_2014);
             XmlPullParser parser2015 = view.getResources().getXml(R.xml.export_2015);
             XmlPullParser parser2016 = view.getResources().getXml(R.xml.export_2016);
@@ -45,7 +47,10 @@ public class SearchManeger {
             XmlPullParser parser2018 = view.getResources().getXml(R.xml.export_2018);
             XmlPullParser parser2019 = view.getResources().getXml(R.xml.export_2019);
 
-            allPensList = parseRegistry(parser2014);
+            allPensList = new ArrayList<PensionInfo>(15000);
+            allPensList.addAll(parseRegistry(parser2012));
+            allPensList.addAll(parseRegistry(parser2013));
+            allPensList.addAll(parseRegistry(parser2014));
             allPensList.addAll(parseRegistry(parser2015));
             allPensList.addAll(parseRegistry(parser2016));
             allPensList.addAll(parseRegistry(parser2017));

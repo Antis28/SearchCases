@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#bbf"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="32dp"
+            android:text="@string/select_research"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/goto_search_by_base_number_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:onClick="buttonsHandler"
+            android:padding="16dp"
+            android:text="@string/search_by_number_in_base"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:shadowColor="@android:color/black"
+            android:background="#dde"/>
+
+        <Button
+            android:id="@+id/goto_search_by_lastname_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:enabled="true"
+            android:onClick="buttonsHandler"
+            android:padding="16dp"
+            android:text="@string/search_by_lastname"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:background="#dde"/>
+
+        <Button
+            android:id="@+id/goto_search_by_number_in_registry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="8dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:enabled="true"
+            android:onClick="buttonsHandler"
+            android:padding="16dp"
+            android:text="@string/search_by_registr"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:background="#dde"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="buttonsHandler"
+        android:padding="16dp"
+        android:text="@string/about_title"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:visibility="visible"
+        />
+</RelativeLayout>

@@ -32,7 +32,8 @@
         android:hint="@string/hint_for_number_in_base"
         android:inputType="number"
         android:padding="16dp"
-        android:textSize="22sp"
+        android:textSize="16sp"
+        android:maxLength="6"
         android:layout_gravity="center_horizontal"/>
 
     <Button

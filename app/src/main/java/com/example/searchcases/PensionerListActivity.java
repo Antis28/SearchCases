@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PensionerListActivity extends AppCompatActivity {
+    String numberInBase = "Номер не получен.";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,13 +23,13 @@ public class PensionerListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pensioner_list);
 
 
-        String  numberInBase = "Номер не получен.";
         numberInBase = getIntent().getStringExtra("numberInBase");
         TextView testTextView = findViewById(R.id.testTextView);
         testTextView.setText(("Переданый номер - " + numberInBase));
 
-        //ShowStringsInListView();
+        ShowStringsInListView();
     }
+
     private void ShowStringsInListView() {
         List<PensionInfo> pensList = getPensionerList();
         List<String> listString = pensionerToStrings(pensList);
@@ -39,17 +40,45 @@ public class PensionerListActivity extends AppCompatActivity {
     }
 
     private List<PensionInfo> getPensionerList() {
-        List<PensionInfo> pensList = null;
+        List<PensionInfo> allPensList = null;
+        List<PensionInfo> filterPensList = new ArrayList<>(10);
+
         SearchManeger searchManeger = new SearchManeger();
         try {
-            XmlPullParser parser = getResources().getXml(R.xml.export_2019);
-            pensList = searchManeger.parseRegistry(parser);
+            XmlPullParser parser2014 = getResources().getXml(R.xml.export_2014);
+            XmlPullParser parser2015 = getResources().getXml(R.xml.export_2015);
+            XmlPullParser parser2016 = getResources().getXml(R.xml.export_2016);
+            XmlPullParser parser2017 = getResources().getXml(R.xml.export_2017);
+            XmlPullParser parser2018 = getResources().getXml(R.xml.export_2018);
+            XmlPullParser parser2019 = getResources().getXml(R.xml.export_2019);
+
+            allPensList = searchManeger.parseRegistry(parser2014);
+            allPensList.addAll(searchManeger.parseRegistry(parser2015));
+            allPensList.addAll(searchManeger.parseRegistry(parser2016));
+            allPensList.addAll(searchManeger.parseRegistry(parser2017));
+            allPensList.addAll(searchManeger.parseRegistry(parser2018));
+            allPensList.addAll(searchManeger.parseRegistry(parser2019));
+
+
         } catch (Throwable t) {
             Toast.makeText(this,
                     "Ошибка при загрузке XML-документа: " + t.toString(),
                     Toast.LENGTH_LONG).show();
         }
-        return pensList;
+        if (allPensList == null)
+            return null;
+
+        for (int i = 0; i < allPensList.size(); i++) {
+            String currNuberReg = allPensList.get(i).getNumberInBase();
+            boolean valueEquals = currNuberReg.equals(numberInBase);
+            if (valueEquals) {
+                filterPensList.add(allPensList.get(i));
+            }
+
+        }
+
+
+        return filterPensList;
     }
 
     private List<String> pensionerToStrings(List<PensionInfo> pensList) {
@@ -72,9 +101,9 @@ public class PensionerListActivity extends AppCompatActivity {
 
 
     public void back(View view) {
-        switch(view.getId()){
+        switch (view.getId()) {
             case R.id.pass_button:
-                Intent intent = new Intent(this,SearchScreenActivity.class);
+                Intent intent = new Intent(this, SearchScreenActivity.class);
                 startActivity(intent);
         }
     }

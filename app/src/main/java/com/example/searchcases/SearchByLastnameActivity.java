@@ -2,38 +2,52 @@ package com.example.searchcases;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.searchcases.MyUtils.KeyboardUtils;
+
 import java.util.List;
 
-public class SearchByLastnameActivity extends AppCompatActivity {
+public class SearchByLastnameActivity extends AppCompatActivity implements View.OnClickListener,
+        View.OnKeyListener{
     SearchManager searchManager;
+    EditText etLastname;
+
+    Button btnSearchByLastname,
+            btnClearTextEdit,
+            btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_by_lastname);
+
+        initListener();
+        KeyboardUtils.initFocusAndShowKeyBoard(etLastname,this);
     }
 
-    public void buttonsHandler(View view) {
-        switch (view.getId()) {
-            case R.id.search_by_lastname_button:
-                searchComparePensioner(view);
-                break;
-            case R.id.clear_button:
-                clearInputNumberInBase(view);
-                break;
-            case R.id.back_button:
-                onBackPressed();
-                break;
-        }
+    private void initListener() {
+        // Добавляем слушателя к компонентам
+        btnSearchByLastname = findViewById(R.id.search_by_lastname_button);
+        btnSearchByLastname.setOnClickListener(this);
+
+        btnClearTextEdit = findViewById(R.id.clear_button);
+        btnClearTextEdit.setOnClickListener(this);
+
+        btnBack = findViewById(R.id.back_button);
+        btnBack.setOnClickListener(this);
+
+        etLastname = findViewById(R.id.input_lastname);
+        etLastname.setOnKeyListener(this);
     }
 
-    private void searchComparePensioner(View view) {
+    private void searchComparePensioner() {
         EditText lastnameTextView = findViewById(R.id.input_lastname);
         String lastname = lastnameTextView.getText().toString();
 
@@ -77,5 +91,34 @@ public class SearchByLastnameActivity extends AppCompatActivity {
     private void clearInputNumberInBase(View view) {
         EditText numberTextView = findViewById(R.id.input_lastname);
         numberTextView.setText("");
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.search_by_lastname_button:
+                searchComparePensioner();
+                KeyboardUtils.hideKeyBoard(etLastname,this);
+                break;
+            case R.id.clear_button:
+                clearInputNumberInBase(view);
+                KeyboardUtils.initFocusAndShowKeyBoard(etLastname,this);
+                break;
+            case R.id.back_button:
+                onBackPressed();
+                break;
+        }
+    }
+
+    @Override
+    public boolean onKey(View v, int keyCode, KeyEvent event) {
+        // Обработайте нажатие клавиши, верните true, если
+        // обработка выполнена
+
+        if (keyCode == KeyEvent.KEYCODE_ENTER){
+            searchComparePensioner();
+            KeyboardUtils.hideKeyBoard(etLastname,this);
+        }
+        return false;
     }
 }

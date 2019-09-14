@@ -36,9 +36,9 @@
 		android:layout_marginBottom = "8dp"
 		android:background = "@android:color/white"
 		android:hint = "@string/hint_for_lastname"
-		android:imeOptions = "actionDone"
 		android:inputType = "textPersonName"
 		android:padding = "16dp"
+		android:windowSoftInputMode = "adjustPan"
 		android:textSize = "16sp"/>
 
 	<LinearLayout

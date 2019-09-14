@@ -1,85 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+	xmlns:android = "http://schemas.android.com/apk/res/android"
+	xmlns:app = "http://schemas.android.com/apk/res-auto"
+	xmlns:tools = "http://schemas.android.com/tools"
+	android:layout_width = "match_parent"
+	android:layout_height = "match_parent"
+	android:orientation = "vertical"
 
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ddd"
-    android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".SearchByNumberRegistryActivity">
+	android:theme = "@style/SearchActivity"
 
-    <Button
-        android:id="@+id/back_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="buttonsHandler"
-        android:text="@string/back_to_searchscreen"        />
+	tools:context = ".SearchByNumberRegistryActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+	<Button
+		android:id = "@+id/back_button"
+		style = "@style/ButtonStyle.Back"
 
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="@string/search_by_number_from_registry"
-        android:textColor="#000"
-        android:textSize="20sp" />
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:onClick = "buttonsHandler"
+		android:text = "@string/back_to_searchscreen"
+		android:theme = "@style/ButtonTheme"/>
 
-    <EditText
-        android:id="@+id/input_number_in_registry"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="8dp"
-        android:background="@android:color/white"
-        android:hint="@string/input_number_by_registry"
-        android:inputType="number"
-        android:maxLength="6"
-        android:padding="16dp"
-        android:textSize="16sp" />
+	<TextView
+		style = "@style/TextTitleStyle"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:text = "@string/search_by_number_from_registry"/>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:orientation="horizontal">
+	<EditText
+		android:id = "@+id/input_number_in_registry"
+		android:layout_width = "match_parent"
+		android:layout_height = "wrap_content"
+		android:layout_gravity = "center_horizontal"
+		android:layout_marginBottom = "8dp"
+		android:background = "@android:color/white"
+		android:hint = "@string/input_number_by_registry"
+		android:imeOptions = "actionDone"
+		android:inputType = "number"
+		android:maxLength = "6"
+		android:padding = "16dp"
+		android:textSize = "16sp"/>
 
-        <Button
-            android:id="@+id/clear_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:onClick="buttonsHandler"
-            android:text="@string/clear"
-            android:textSize="20sp" />
+	<LinearLayout
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:layout_gravity = "center_horizontal"
+		android:orientation = "horizontal">
 
-        <Button
-            android:id="@+id/search_by_number_in_registry"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="30dp"
-            android:onClick="buttonsHandler"
-            android:text="@string/search"
-            android:textSize="20sp" />
-    </LinearLayout>
+		<Button
+			android:id = "@+id/clear_button"
+			style = "@style/ButtonStyle"
 
-    <TextView
-        android:id="@+id/testTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="8dp"
-        android:text="" />
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:onClick = "buttonsHandler"
 
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:background="?android:attr/activatedBackgroundIndicator" />
+			android:text = "@string/clear"
+			android:theme = "@style/ButtonTheme"/>
+
+		<Button
+			android:id = "@+id/search_by_number_in_registry"
+			style = "@style/ButtonStyle"
+
+			android:layout_width = "wrap_content"
+			android:layout_height = "wrap_content"
+			android:layout_marginLeft = "30dp"
+
+			android:onClick = "buttonsHandler"
+			android:text = "@string/search"
+			android:theme = "@style/ButtonTheme"/>
+	</LinearLayout>
+
+	<TextView
+		android:id = "@+id/testTextView"
+		style = "@style/TextTitleStyle"
+		android:layout_width = "wrap_content"
+		android:layout_height = "wrap_content"
+		android:text = ""/>
+
+	<ListView
+		android:id = "@+id/listView"
+		android:layout_width = "match_parent"
+		android:layout_height = "wrap_content"
+		android:layout_margin = "8dp"
+		android:background = "?android:attr/activatedBackgroundIndicator"/>
 
 </LinearLayout>

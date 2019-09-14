@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+-->
+    <!-- https://www.materialpalette.com/deep-purple/deep-purple -->
+    <color name="primary">#8134af</color>
+    <color name="primary_dark">#512DA8</color>
+    <color name="primary_light">#D1C4E9</color>
+    <color name="accent">#03A9F4</color>
+
+    <color name="primary_text">#feda77</color>
+    <color name="secondary_text">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+
+
+    <color name="buttonBackground">#512DA8</color>
+    <color name="buttonHighlight">#C5B3FF</color>
+
+    <color name="buttonText">#FFEE6F</color>
+    <color name="TextTitle">#512DA8</color>
+    <color name="activityBackground">#FFF5C3</color>
+
 </resources>

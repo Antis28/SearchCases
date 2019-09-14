@@ -4,8 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+    Button btnGotoSearchByBaseNumber,
+            btnGotoSearchByLastname,
+            btnGotoSearchByNumberInRegistry;
 
     String[] listItemDemo = {"Java", "Kotlin", "C++"};
 
@@ -14,16 +19,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        btnGotoSearchByBaseNumber = findViewById(R.id.goto_search_by_base_number_button);
+        btnGotoSearchByBaseNumber.setOnClickListener(this);
 
+        btnGotoSearchByLastname = findViewById(R.id.goto_search_by_lastname_button);
+        btnGotoSearchByLastname.setOnClickListener(this);
+
+        btnGotoSearchByNumberInRegistry = findViewById(R.id.goto_search_by_number_in_registry);
+        btnGotoSearchByNumberInRegistry.setOnClickListener(this);
     }
 
-    public void buttonsHandler(View view) {
+    @Override
+    public void onClick(View view) {
         Intent intent;
-		switch(view.getId()){
-			case R.id.goto_search_by_base_number_button:
-                intent= new Intent(this, SearchByNumberInBaseActivity.class);
-				startActivity(intent);
-				break;
+        switch (view.getId()) {
+            case R.id.goto_search_by_base_number_button:
+                intent = new Intent(this, SearchByNumberInBaseActivity.class);
+                startActivity(intent);
+                break;
             case R.id.goto_search_by_lastname_button:
                 intent = new Intent(this, SearchByLastnameActivity.class);
                 startActivity(intent);
@@ -36,8 +49,6 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);
                 break;
-		}
-
+        }
     }
-
 }

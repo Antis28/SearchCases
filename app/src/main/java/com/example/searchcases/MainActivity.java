@@ -10,6 +10,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button btnGotoSearchByBaseNumber,
             btnGotoSearchByLastname,
+            btnGotoAbout,
             btnGotoSearchByNumberInRegistry;
 
     String[] listItemDemo = {"Java", "Kotlin", "C++"};
@@ -19,6 +20,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initListener();
+    }
+
+    private void initListener() {
         btnGotoSearchByBaseNumber = findViewById(R.id.goto_search_by_base_number_button);
         btnGotoSearchByBaseNumber.setOnClickListener(this);
 
@@ -27,6 +32,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnGotoSearchByNumberInRegistry = findViewById(R.id.goto_search_by_number_in_registry);
         btnGotoSearchByNumberInRegistry.setOnClickListener(this);
+
+        btnGotoAbout = findViewById(R.id.about);
+        btnGotoAbout.setOnClickListener(this);
     }
 
     @Override

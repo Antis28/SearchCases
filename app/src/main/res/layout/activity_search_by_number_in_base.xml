@@ -17,8 +17,7 @@
 		android:id = "@+id/back_button"
 		style = "@style/ButtonStyle.Back"
 		android:layout_width = "wrap_content"
-		android:layout_height = "wrap_content"
-		android:onClick = "buttonsHandler"
+		android:layout_height = "wrap_content"		
 		android:text = "@string/back_to_searchscreen"
 		android:theme = "@style/ButtonTheme"/>
 
@@ -52,8 +51,7 @@
 			android:id = "@+id/clear_button"
 			style = "@style/ButtonStyle"
 			android:layout_width = "wrap_content"
-			android:layout_height = "wrap_content"
-			android:onClick = "buttonsHandler"
+			android:layout_height = "wrap_content"			
 			android:text = "@string/clear"
 			android:theme = "@style/ButtonTheme"/>
 
@@ -62,7 +60,6 @@
 			style = "@style/ButtonStyle"
 			android:layout_width = "wrap_content"
 			android:layout_height = "wrap_content"
-			android:onClick = "buttonsHandler"
 			android:text = "@string/search"
 			android:theme = "@style/ButtonTheme"/>
 	</LinearLayout>

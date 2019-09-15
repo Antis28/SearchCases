@@ -24,10 +24,14 @@ public class SearchByNumberInBaseActivity extends AppCompatActivity implements V
             btnBack;
     EditText etNumberInBase;
 
+    ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_by_number_in_base);
+
+        listView = (ListView) findViewById(R.id.listView);
 
         initListener();
         KeyboardUtils.initFocusAndShowKeyBoard(etNumberInBase, this);
@@ -86,8 +90,6 @@ public class SearchByNumberInBaseActivity extends AppCompatActivity implements V
             testTextView.setText(("Номер " + numberInBase + " найден"));
         else
             testTextView.setText(("Номер " + numberInBase + " не найден"));
-
-
     }
 
     private List<PensionInfo> getPensionsByNumberBase(String numberInBase) {
@@ -98,15 +100,9 @@ public class SearchByNumberInBaseActivity extends AppCompatActivity implements V
     }
 
     private void ShowStringsInListView(List<String> listString) {
-        ListView listView = getListView();
         ArrayAdapter<String> adapterDemo = new ArrayAdapter<>(this,
                 R.layout.list_item, listString);
         listView.setAdapter(adapterDemo);
-    }
-
-    private ListView getListView() {
-        ListView listView = (ListView) findViewById(R.id.listView);
-        return listView;
     }
 
     private void clearInputNumberInBase() {

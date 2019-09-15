@@ -4,7 +4,8 @@ import android.app.Activity;
 import android.content.res.XmlResourceParser;
 import android.widget.Toast;
 
-import org.xmlpull.v1.XmlPullParser;
+import com.example.searchcases.MyUtils.CabinetNumber;
+
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
@@ -51,6 +52,14 @@ public class SearchManager {
         personList = fillOutPensionerList(parser);
 
         return personList;
+    }
+
+    public List<PensionInfo> getAllPensList() {
+        return allPensList;
+    }
+
+    public void setAllPensList(List<PensionInfo> allPensList) {
+        this.allPensList = allPensList;
     }
 
     private void init() {
@@ -105,8 +114,9 @@ public class SearchManager {
                 }
             }
             if (eventType == XmlResourceParser.END_TAG && parser.getName().equals(PERSON_TAG)) {
-                if (person != null)
+                if (person != null) {
                     person.setRegistryName(registryName);
+                }
                 personList.add(person);
             }
             parser.next();
@@ -186,15 +196,6 @@ public class SearchManager {
         return person;
     }
 
-
-    public List<PensionInfo> getAllPensList() {
-        return allPensList;
-    }
-
-    public void setAllPensList(List<PensionInfo> allPensList) {
-        this.allPensList = allPensList;
-    }
-
     List<PensionInfo> getPensWithNumber(String numberInBase) {
 
         List<PensionInfo> filterPensList = new ArrayList<>(1);
@@ -225,24 +226,33 @@ public class SearchManager {
         List<String> listString = new ArrayList<>();
         for (int i = 0; i < pensList.size(); i++) {
             String s = "";
+            PensionInfo pens = pensList.get(i);
 
-            s += "Номер по базе - " + pensList.get(i).getNumberInBase() + "\n";
+            s += "Номер по базе - " + pens.getNumberInBase() + "\n";
 
-            s += pensList.get(i).getLastName() + " ";
-            s += pensList.get(i).getName() + " ";
-            s += pensList.get(i).getFartherName() + "\n\n";
+            s += pens.getLastName() + " ";
+            s += pens.getName() + " ";
+            s += pens.getFartherName() + "\n\n";
 
-            s += pensList.get(i).getRegistryName() + "\n";
-            s += "Номер по описи - " + pensList.get(i).getNumberRegistry() + "\n\n";
+            s += pens.getRegistryName() + "\n";
+            s += "Номер по описи - " + pens.getNumberRegistry() + "\n\n";
 
-            s += "Количество страниц - " + pensList.get(i).getPageCount() + "\n";
+            s += "Количество страниц - " + pens.getPageCount() + "\n";
             s += "Период:\n";
-            s +=  pensList.get(i).getDataStart();
+            s +=  pens.getDataStart();
             s +=  " - ";
-            s +=  pensList.get(i).getDataEnd() + "\n";
-            if (!pensList.get(i).getRemark().equals(""))
-                s += "Примечание - " + pensList.get(i).getRemark();
+            s +=  pens.getDataEnd() + "\n";
+            if (!pens.getRemark().equals(""))
+                s += "Примечание - " + pens.getRemark()+ "\n";
+
+
+            int number = CabinetNumber.getCabinetNumber(pens);
+            if  (number != 0){
+                s +=  "Кабинет № " + number;
+            }
+
             listString.add(s);
+
         }
         return listString;
     }

@@ -48,7 +48,14 @@ public class CabinetNumber {
         // TODO: работает только со второй половиной 2005 года, добавить первую
         int cabinetMinNumber = 5288;
         int cabinetMaxNumber = 10274;
-        return cabinetIsCorrect(numberRegistry, cabinetMinNumber, cabinetMaxNumber);
+		
+		int cabinetMinNumber2017year = 3219;
+        int cabinetMaxNumber2017year = 4157;
+		
+		boolean cabinetCorrect_0 = cabinetIsCorrect(numberRegistry, cabinetMinNumber, cabinetMaxNumber);
+		boolean cabinetCorrect_2017 = cabinetIsCorrect(numberRegistry, cabinetMinNumber2017year, cabinetMaxNumber2017year);
+		
+        return cabinetCorrect_0 || cabinetCorrect_2017;
     }
 
     private static boolean checkCabinet525(int numberRegistry) {
